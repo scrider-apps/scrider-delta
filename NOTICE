@@ -1,0 +1,35 @@
+@scrider/delta
+Copyright (c) 2025-2026 Pavel Sukharev
+
+This product is licensed under the MIT License.
+See the LICENSE file for details.
+
+
+Third-Party Notices
+===================
+
+1. fast-diff
+   Copyright (c) 2015 Jason Chen
+   Licensed under the Apache License, Version 2.0
+   https://github.com/jhchen/fast-diff
+
+   The file src/utils/text-diff.ts is a TypeScript adaptation of fast-diff,
+   which is itself derived from diff-match-patch by Neil Fraser (Google Inc.).
+   See LICENSES/Apache-2.0.txt for the full license text.
+
+2. diff-match-patch
+   Copyright (c) 2006 Google Inc.
+   Licensed under the Apache License, Version 2.0
+   https://github.com/google/diff-match-patch
+
+   The text diff algorithm originates from diff-match-patch.
+   See LICENSES/Apache-2.0.txt for the full license text.
+
+3. quill-delta (acknowledgment)
+   Copyright (c) 2017 Jason Chen
+   Licensed under the MIT License
+   https://github.com/quilljs/delta
+
+   The Delta data format and OT operation design were informed by quill-delta.
+   @scrider/delta is an independent implementation with a different type system,
+   architecture, and API surface.
