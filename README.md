@@ -4,7 +4,7 @@ JSON format for describing rich-text content and changes. Core Delta class and O
 
 ## Overview
 
-`@scrider/delta` is the data layer of the [Scrider](https://github.com/scrider-apps) ecosystem. It provides a compact, JSON-serializable format for representing rich-text documents and the changes made to them — inspired by [quill-delta](https://github.com/quilljs/delta), independently implemented with strict TypeScript and zero runtime dependencies.
+`@scrider/delta` is the data layer of the [Scrider](https://github.com/scrider-apps) ecosystem. It provides a compact, JSON-serializable format for representing rich-text documents and the changes made to them. Strict TypeScript, zero runtime dependencies.
 
 ## Key Features
 
@@ -104,10 +104,6 @@ const diffs = textDiff('Hello world', 'Hello there');
     ↑
 @scrider/editor         React WYSIWYG Component (planned)
 ```
-
-## Compatibility
-
-The Delta format is wire-compatible with [quill-delta](https://github.com/quilljs/delta). Documents created with `@scrider/delta` can be consumed by Quill and vice versa. The OT operations follow the same mathematical properties.
 
 ## License
 

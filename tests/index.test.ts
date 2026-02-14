@@ -18,7 +18,7 @@ import {
 
 describe('Public API exports (@scrider/delta)', () => {
   it('exports VERSION', () => {
-    expect(VERSION).toBe('1.0.0');
+    expect(VERSION).toMatch(/^\d+\.\d+\.\d+$/);
   });
 
   it('exports Delta class', () => {
