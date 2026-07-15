@@ -1,5 +1,14 @@
 import { describe, expect, it } from 'vitest';
-import type { AttributeMap, DeleteOp, InsertOp, InsertValue, Op, RetainOp } from '../src/index';
+import type {
+  AttributeMap,
+  DeleteOp,
+  InsertOp,
+  InsertValue,
+  Op,
+  ParsedScriderDocument,
+  RetainOp,
+  ScriderDocument,
+} from '../src/index';
 import {
   AttributeMapUtils,
   deepClone,
@@ -9,10 +18,14 @@ import {
   isEmbedInsert,
   isInsert,
   isRetain,
+  isScriderDocument,
   isTextInsert,
   OpIterator,
   opLength,
   opType,
+  parseDocument,
+  SCRIDER_METADATA_KEY,
+  serializeDocument,
   VERSION,
 } from '../src/index';
 
@@ -57,6 +70,21 @@ describe('Public API exports (@scrider/delta)', () => {
   it('exports deep utilities', () => {
     expect(deepEqual).toBeDefined();
     expect(deepClone).toBeDefined();
+  });
+
+  it('exports document container helpers', () => {
+    expect(serializeDocument).toBeDefined();
+    expect(parseDocument).toBeDefined();
+    expect(isScriderDocument).toBeDefined();
+    expect(SCRIDER_METADATA_KEY).toBe('scrider-metadata');
+  });
+
+  it('document helpers round-trip through the public API', () => {
+    const doc = serializeDocument(new Delta().insert('Hi\n'), { lineSpacing: 1.5 });
+    const parsed = parseDocument(JSON.stringify(doc));
+
+    expect(parsed.delta.ops).toEqual([{ insert: 'Hi\n' }]);
+    expect(parsed.metadata).toEqual({ lineSpacing: 1.5 });
   });
 
   it('Delta can be used with method chaining', () => {
@@ -120,5 +148,18 @@ describe('Type exports (@scrider/delta)', () => {
     const embed: InsertValue = { image: 'url' };
     expect(text).toBeDefined();
     expect(embed).toBeDefined();
+  });
+
+  it('ScriderDocument type is usable', () => {
+    const doc: ScriderDocument = {
+      ops: [{ insert: 'hi\n' }],
+      'scrider-metadata': { lineSpacing: 1.5 },
+    };
+    expect(doc).toBeDefined();
+  });
+
+  it('ParsedScriderDocument type is usable', () => {
+    const parsed: ParsedScriderDocument = { delta: new Delta(), metadata: { lineSpacing: 1 } };
+    expect(parsed).toBeDefined();
   });
 });

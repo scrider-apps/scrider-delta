@@ -1,6 +1,6 @@
 {
   "name": "@scrider/delta",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "JSON format for rich-text content with Delta and OT operations",
   "author": "Pavel Sukharev",
   "license": "MIT",
