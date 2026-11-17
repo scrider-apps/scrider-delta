@@ -3,7 +3,7 @@
  * Core Delta class and OT operations
  */
 
-export const VERSION = '1.1.1';
+export const VERSION = '1.1.2';
 
 // Core Delta class
 export { Delta } from './delta/Delta';
