@@ -93,7 +93,8 @@ export function transform(a: Delta, b: Delta, priority: boolean = false): Delta 
  *
  * @param delta - Delta that has been applied
  * @param index - Original cursor position
- * @param priority - If true, cursor "sticks" to the right of insertions at same position
+ * @param priority - If true, an insert at `index` lands after the cursor
+ *   (the cursor keeps its index); if false, the cursor moves past the insert
  * @returns New cursor position
  */
 export function transformPosition(delta: Delta, index: number, priority: boolean = false): number {

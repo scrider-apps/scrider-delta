@@ -435,7 +435,8 @@ export class Delta {
    * Transform a cursor position against this Delta
    *
    * @param index - Cursor position
-   * @param priority - If true, cursor "sticks" to the right of insertions
+   * @param priority - If true, an insert at `index` lands after the cursor
+   *   (the cursor keeps its index); if false, the cursor moves past the insert
    * @returns New cursor position
    */
   transformPosition(index: number, priority: boolean = false): number {
